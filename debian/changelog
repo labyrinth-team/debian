@@ -1,8 +1,16 @@
+labyrinth (0.6.0~1) precise; urgency=low
+
+  * Update build system and packaging
+
+ -- Thomas Kluyver <thomas@kluyver.me.uk>  Wed, 19 Sep 2012 23:03:50 +0100
+
 labyrinth (0.4.0) gutsy; urgency=low
 
   * check for pygtk version before gtk is imported like it is said in the pygtk FAQ, fixes Issue 82
   * update de translation
   * fix export dialog
+
+ -- Martin Schaaf (Privat) <mascha@ma-scha.de>  Fri, 28 Mar 2008 09:39:01 +0100
 
 labyrinth (0.4.0rc7) gutsy; urgency=low
   
