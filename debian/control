@@ -5,6 +5,7 @@ Maintainer: Martin Schaaf <mascha@ma-scha.de>
 Build-Depends: debhelper (>= 8), python (>= 2.6)
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
+Homepage: http://www.gnome.org/~dscorgie/labyrinth.html
 
 Package: labyrinth
 Architecture: all
@@ -27,4 +28,3 @@ Description: lightweight mind-mapping tool
  used to generate, visualise, structure and classify ideas, and as an aid in 
  study, organisation, problem solving, and decision making
  .
- Homepage: http://www.gnome.org/~dscorgie/labyrinth.html

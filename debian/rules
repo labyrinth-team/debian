@@ -7,10 +7,10 @@ PKGDIR=$(CURDIR)/debian/labyrinth/
 
 install-icons:
 	for size in 16x16 22x22 24x24 scalable; do install -d $(PKGDIR)/usr/share/icons/hicolor/$$size/apps; done
-	install -m 644 $(srcdir)/labyrinth-16.png $(PKGDIR)/usr/share/icons/hicolor/16x16/apps/labyrinth.png
-	install -m 644 $(srcdir)/labyrinth-22.png $(PKGDIR)/usr/share/icons/hicolor/22x22/apps/labyrinth.png
-	install -m 644 $(srcdir)/labyrinth-24.png $(PKGDIR)/usr/share/icons/hicolor/24x24/apps/labyrinth.png
-	install -m 644 $(srcdir)/labyrinth.svg $(PKGDIR)/usr/share/icons/hicolor/scalable/apps/labyrinth.svg
+	install -m 644 data/labyrinth-16.png $(PKGDIR)/usr/share/icons/hicolor/16x16/apps/labyrinth.png
+	install -m 644 data/labyrinth-22.png $(PKGDIR)/usr/share/icons/hicolor/22x22/apps/labyrinth.png
+	install -m 644 data/labyrinth-24.png $(PKGDIR)/usr/share/icons/hicolor/24x24/apps/labyrinth.png
+	install -m 644 data/labyrinth.svg $(PKGDIR)/usr/share/icons/hicolor/scalable/apps/labyrinth.svg
 
 override_dh_auto_install: install-icons
 	dh_auto_install
