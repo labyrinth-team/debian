@@ -12,7 +12,16 @@ install-icons:
 	install -m 644 data/labyrinth-24.png $(PKGDIR)/usr/share/icons/hicolor/24x24/apps/labyrinth.png
 	install -m 644 data/labyrinth.svg $(PKGDIR)/usr/share/icons/hicolor/scalable/apps/labyrinth.svg
 
-override_dh_auto_install: install-icons
+install-lang-data:
+	set -e
+	cd po && make all-mo
+	for mofile in po/*.mo; do \
+		lang=`basename $${mofile%.*}`; \
+		install -D -m 644 $$mofile $(PKGDIR)/usr/share/locale/$$lang/LC_MESSAGES/labyrinth.mo; \
+		echo "Installed language $$lang"; \
+	done
+
+override_dh_auto_install: install-icons install-lang-data
 	dh_auto_install
 	mkdir -p $(PKGDIR)/usr/share/applications
 	install data/labyrinth.desktop $(PKGDIR)/usr/share/applications/labyrinth.desktop
@@ -21,3 +30,4 @@ override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf build
 	rm -rf *.egg-info
+	rm -rf po/*.mo
