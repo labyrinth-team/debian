@@ -14,8 +14,6 @@ Depends: ${python:Depends},
          python-glade2,
          python-gtk2 (>= 2.8),
          python-gobject (>= 2.10),
-         python-gnome2 (>= 2.12),
-         python-gnome2-desktop (>= 2.14),
          python-cairo (>= 1.0),
          python-gconf
 Description: lightweight mind-mapping tool
