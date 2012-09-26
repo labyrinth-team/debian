@@ -5,29 +5,12 @@ PKGDIR=$(CURDIR)/debian/labyrinth/
 %:
 	dh $@ --with python2
 
-install-icons:
-	for size in 16x16 22x22 24x24 scalable; do install -d $(PKGDIR)/usr/share/icons/hicolor/$$size/apps; done
-	install -m 644 data/labyrinth-16.png $(PKGDIR)/usr/share/icons/hicolor/16x16/apps/labyrinth.png
-	install -m 644 data/labyrinth-22.png $(PKGDIR)/usr/share/icons/hicolor/22x22/apps/labyrinth.png
-	install -m 644 data/labyrinth-24.png $(PKGDIR)/usr/share/icons/hicolor/24x24/apps/labyrinth.png
-	install -m 644 data/labyrinth.svg $(PKGDIR)/usr/share/icons/hicolor/scalable/apps/labyrinth.svg
-
-install-lang-data:
-	set -e
-	cd po && make all-mo
-	for mofile in po/*.mo; do \
-		lang=`basename $${mofile%.*}`; \
-		install -D -m 644 $$mofile $(PKGDIR)/usr/share/locale/$$lang/LC_MESSAGES/labyrinth.mo; \
-		echo "Installed language $$lang"; \
-	done
-
 override_dh_auto_install: install-icons install-lang-data
 	dh_auto_install
-	mkdir -p $(PKGDIR)/usr/share/applications
-	install data/labyrinth.desktop $(PKGDIR)/usr/share/applications/labyrinth.desktop
+	DESTDIR=$(PKGDIR) ./install_data_files.sh
 
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf build
 	rm -rf *.egg-info
-	rm -rf po/*.mo
+	make -c po clean
