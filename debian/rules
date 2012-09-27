@@ -13,4 +13,4 @@ override_dh_auto_clean:
 	dh_auto_clean
 	rm -rf build
 	rm -rf *.egg-info
-	make -c po clean
+	make -C po clean
