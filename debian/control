@@ -17,7 +17,8 @@ Depends: ${python:Depends},
          python-gnome2 (>= 2.12),
          python-gnome2-desktop (>= 2.14),
          python-cairo (>= 1.0),
-         python-gconf
+         python-gconf,
+         python-xdg
 Description: lightweight mind-mapping tool
  Labyrinth is a lightweight mind-mapping tool, written in Python using Gtk 
  and Cairo to do the drawing. It is intended to be as light and intuitive as 
