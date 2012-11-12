@@ -1,3 +1,10 @@
+labyrinth (0.6-1) raring; urgency=low
+
+  * New release
+  * Update packaging based on changes by Charlie Smotherman for Ubuntu.
+
+ -- Thomas Kluyver <thomas@kluyver.me.uk>  Mon, 12 Nov 2012 13:58:48 +0000
+
 labyrinth (0.6.0~1-1) precise; urgency=low
 
   * Update build system and packaging

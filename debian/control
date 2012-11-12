@@ -2,7 +2,7 @@ Source: labyrinth
 Section: gnome
 Priority: optional
 Maintainer: Martin Schaaf <mascha@ma-scha.de>
-Build-Depends: debhelper (>= 8), python (>= 2.6)
+Build-Depends: debhelper (>= 8), python (>= 2.6.6-3~)
 Standards-Version: 3.9.3
 X-Python-Version: >= 2.6
 Homepage: http://www.gnome.org/~dscorgie/labyrinth.html

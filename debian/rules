@@ -1,16 +1,16 @@
 #!/usr/bin/make -f
 
-PKGDIR=$(CURDIR)/debian/labyrinth/
+DESTDIR=$(CURDIR)/debian/labyrinth/
+PYVERS = $(shell pyversions -r)
 
 %:
 	dh $@ --with python2
 
 override_dh_auto_install:
-	dh_auto_install
-	DESTDIR=$(PKGDIR) ./install_data_files.sh
-
-override_dh_auto_clean:
-	dh_auto_clean
-	rm -rf build
-	rm -rf *.egg-info
-	make -C po clean
+	set -e; \
+	for py in $(PYVERS); do \
+		$$py setup.py install --root=$(DESTDIR) --install-layout=deb \
+		--install-scripts=/usr/share/labyrinth; \
+	done
+	dh_link /usr/share/labyrinth/labyrinth /usr/bin/labyrinth
+	make -C po localedir=$(DESTDIR)/usr/share/locale install
